@@ -1,0 +1,51 @@
+generated: '2026-08-04'
+method: searched
+probe: true
+source: https://www.mastercontrol.com/ai-trust-center/
+url: https://www.mastercontrol.com/ai-trust-center/
+name: MasterControl AI Trust Center
+summary: >-
+  MasterControl publishes an AI Trust Center covering how its AI features handle customer data,
+  which management systems are certified, and which life-sciences regulations the platform is
+  built to support. There is no separate general-purpose trust portal at trust.mastercontrol.com
+  (NXDOMAIN) or /trust-center/ (404) — the AI Trust Center is the published compliance surface.
+certifications:
+- ISO 9001
+- ISO 27001
+- ISO 27017
+- ISO 27701
+- ISO 42001
+regulations:
+- 21 CFR Part 11
+- EU MDR
+- GDPR
+- HIPAA
+notes:
+- >-
+  ISO 42001 (Artificial Intelligence Management Systems) is called out as an established and
+  certified AI Management System (AIMS).
+- >-
+  No SOC 2 or SOC 1 report is named anywhere on the AI Trust Center page.
+- >-
+  "FedRAMP-ready QMS solutions for government life sciences agencies" appears in the industry
+  navigation as a solution claim, not as an authorization listing — recorded but not asserted
+  as a certification.
+gaps:
+- No security.txt at any MasterControl host (/.well-known/security.txt returns 404 on
+  www.mastercontrol.com and support.mastercontrol.com).
+- No published vulnerability disclosure policy or bug bounty program was found.
+- No public audit-report request flow (SOC 2 / ISO certificate download) is linked from the page.
+evidence:
+- source: https://www.mastercontrol.com/ai-trust-center/
+  http_status: 200
+  keywords: [ISO 9001, ISO 27001, ISO 27017, ISO 27701, ISO 42001, 21 CFR Part 11, EU MDR, GDPR, HIPAA]
+- source: https://trust.mastercontrol.com/
+  http_status: 0
+  note: NXDOMAIN
+- source: https://www.mastercontrol.com/trust-center/
+  http_status: 404
+- source: https://www.mastercontrol.com/.well-known/security.txt
+  http_status: 404
+x-evidence:
+  fetched: '2026-08-04'
+  method: raw HTML fetch, certification strings matched verbatim in page body

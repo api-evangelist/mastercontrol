@@ -1,0 +1,115 @@
+generated: '2026-08-04'
+method: probed
+source: live GET of /.well-known/* and common spec paths on every MasterControl host
+summary: >-
+  No .well-known document was recovered from any MasterControl-controlled host. Two hosts return
+  HTTP 200 for every path probed and are recorded here as confirmed false positives so a later
+  round does not mistake them for hits.
+false_positives:
+- host: https://currentcloud.onlinehelp.mastercontrol.com
+  behaviour: >-
+    Returns HTTP 200 with content-type image/jpeg and an identical 313,869-byte 1920x836 JPEG for
+    EVERY path, including /robots.txt and paths that cannot exist. Verified against browser,
+    Googlebot, bingbot and curl user-agents — the response never varies. Any 200 from this host
+    is meaningless.
+- host: https://support.mastercontrol.com
+  behaviour: >-
+    ServiceNow portal answers /.well-known/openid-configuration with HTTP 200 text/html (the SPA
+    catch-all), not an OIDC discovery document. Rejected.
+- host: https://status.mastercontrol.com
+  behaviour: same ServiceNow instance and same text/html catch-all on /.well-known/openid-configuration
+documents:
+- host: https://www.mastercontrol.com
+  path: /.well-known/security.txt
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /.well-known/openid-configuration
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /.well-known/api-catalog
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /.well-known/agent-card.json
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /.well-known/agent.json
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /llms.txt
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /openapi.json
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /swagger.json
+  status: 404
+- host: https://www.mastercontrol.com
+  path: /robots.txt
+  status: 200
+  note: real robots.txt; disallows /downloadables/ and /Sitefinity/
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /.well-known/security.txt
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /.well-known/openid-configuration
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /.well-known/agent-card.json
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /.well-known/agent.json
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /.well-known/api-catalog
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /openapi.json
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /openapi.yaml
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /swagger.json
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /v3/api-docs
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /v2/api-docs
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /api-docs
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /swagger-ui/index.html
+  status: 404
+- host: https://mx.us-west-2.svc.mastercontrol.com
+  path: /llms.txt
+  status: 404
+- host: https://support.mastercontrol.com
+  path: /.well-known/security.txt
+  status: 404
+- host: https://support.mastercontrol.com
+  path: /.well-known/agent-card.json
+  status: 404
+- host: https://support.mastercontrol.com
+  path: /.well-known/agent.json
+  status: 404
+hosts_not_resolving:
+- developer.mastercontrol.com
+- api.mastercontrol.com
+- docs.mastercontrol.com
+- trust.mastercontrol.com
+- security.mastercontrol.com
+- community.mastercontrol.com
+- qx.mastercontrol.com
+- mx.mastercontrol.com
+- app.mastercontrol.com
+- login.mastercontrol.com
+- auth.mastercontrol.com

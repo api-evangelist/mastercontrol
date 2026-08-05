@@ -1,0 +1,22 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.mastercontrol.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  7 01:01:58 2026 GMT
+  hsts: true
+  hsts_max_age: 0
+- host: mx.us-west-2.svc.mastercontrol.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  6 22:33:07 2026 GMT
+  hsts: null
+domains:
+- domain: mastercontrol.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

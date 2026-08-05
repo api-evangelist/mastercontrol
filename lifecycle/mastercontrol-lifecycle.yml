@@ -1,0 +1,54 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.mastercontrol.com/legal/sla/
+versioning:
+  scheme: unknown
+  note: >-
+    MasterControl ships dated product releases (e.g. the 2024.1 online-help train) but publishes
+    no API versioning policy at a public URL. The API reference is tenant-scoped, so no version
+    header or URI-path scheme could be observed anonymously.
+  docs: https://www.mastercontrol.com/solutions/toolkit/
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: no public deprecation or sunset policy (RFC 8594) was found on any MasterControl host
+sla:
+  url: https://www.mastercontrol.com/legal/sla/
+  name: MasterControl SaaS Service Level Terms
+  uptime_target: 99.95%
+  measurement_window: rolling three-month period
+  remedy: >-
+    If availability falls below 99.95% over a three-month period, or a single outage exceeds
+    48 hours in any month, the customer may terminate and receive a refund of prepaid unused fees.
+  maintenance_windows:
+  - region: APAC
+    window: 09:00-12:00 MST (Nov-Mar) / 10:00-13:00 MDT (Mar-Nov), Saturdays
+  - region: Europe
+    window: 18:00-22:00, Saturdays
+  - region: US/Canada
+    window: 20:00-01:00, Saturdays
+  maintenance_cadence: typically 2 cloud maintenance windows per month; 1 per month for hosted customers
+  support_response_objectives:
+  - severity: Level 1 (High)
+    definition: system or site down
+    response: 4 hours
+  - severity: Level 2 (Medium)
+    definition: critical business function unresponsive or malfunctioning
+    response: 8 business hours
+  - severity: Level 3 (Low)
+    definition: functionality unresponsive or malfunctioning, workaround available
+    response: 12 business hours
+status_page: null
+status_page_note: >-
+  status.mastercontrol.com resolves to mastercontrol.service-now.com and renders the
+  "Customer Service Portal - Support Center", a ServiceNow customer login — not a public
+  component/incident status page. No public status page was found.
+deprecated_operations: []
+evidence:
+- url: https://www.mastercontrol.com/legal/sla/
+  http_status: 200
+- url: https://status.mastercontrol.com/
+  http_status: 200
+  note: ServiceNow customer support portal, not a status page
+- url: https://www.mastercontrol.com/legal/
+  http_status: 200
