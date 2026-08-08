@@ -1,0 +1,14 @@
+{
+  "repo": "mastercontrol",
+  "feeds": [
+    {
+      "source": "https://support.mastercontrol.com/support?id=customer_login",
+      "feed_url": "https://support.mastercontrol.com/support?id=customer_login",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-06T14:08:46Z"
+}
