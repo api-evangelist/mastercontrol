@@ -10,6 +10,17 @@ description: 'MasterControl is a Salt Lake City based software company that buil
   API Toolkit, used to integrate the quality system with ERP, CRM, MES, PDM and document
   repositories; the API reference is published as a Swagger UI inside each customer tenant rather
   than on a public developer portal.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://static.mastercontrol.com/assets/persist/images/home/MasterControl_Thumbnail.jpg
 url: https://raw.githubusercontent.com/api-evangelist/mastercontrol/refs/heads/main/apis.yml
 x-type: company
