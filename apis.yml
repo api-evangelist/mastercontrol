@@ -46,7 +46,7 @@ tags:
 - Manufacturing
 - Life Sciences
 - Compliance
-- Document-Management
+- Document Management
 - Regulatory
 - Enterprise Software
 tags_raw:
@@ -58,6 +58,7 @@ tags_raw:
 - Document Management
 - Regulatory
 - Enterprise Software
+- Document-Management
 apis:
 - aid: mastercontrol:mx-restful-api
   name: MasterControl Mx RESTful API
