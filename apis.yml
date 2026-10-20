@@ -1,5 +1,7 @@
 aid: mastercontrol
+
 name: MasterControl
+
 description: 'MasterControl is a Salt Lake City based software company that builds cloud quality
   management (QMS) and manufacturing execution (MES) software for regulated industries, primarily life
   sciences — pharmaceutical, biotechnology, medical device, CRO/CDMO, and food and beverage
@@ -10,6 +12,7 @@ description: 'MasterControl is a Salt Lake City based software company that buil
   API Toolkit, used to integrate the quality system with ERP, CRM, MES, PDM and document
   repositories; the API reference is published as a Swagger UI inside each customer tenant rather
   than on a public developer portal.'
+
 deliveryModel:
   model: saas
   open_source: false
@@ -21,6 +24,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -33,13 +37,21 @@ accessModel:
   - security
   generated: '2026-09-02'
   method: derived
+
 image: https://static.mastercontrol.com/assets/persist/images/home/MasterControl_Thumbnail.jpg
+
 url: https://raw.githubusercontent.com/api-evangelist/mastercontrol/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
+
 specificationVersion: '0.23'
+
 created: '2026-08-04'
+
 modified: '2026-08-04'
+
 tags:
 - Company
 - Quality Management
@@ -49,6 +61,7 @@ tags:
 - Document Management
 - Regulatory
 - Enterprise Software
+
 tags_raw:
 - Company
 - Quality Management
@@ -59,37 +72,28 @@ tags_raw:
 - Regulatory
 - Enterprise Software
 - Document-Management
-apis:
-- aid: mastercontrol:mx-restful-api
-  name: MasterControl Mx RESTful API
-  description: 'The MasterControl Manufacturing Excellence (Mx) RESTful API creates, modifies,
-    retrieves and deletes manufacturing and production-record data in Mx. It is delivered through the
-    separately licensed MasterControl API Toolkit, and its reference is served as a Swagger UI from
-    the customer''s own tenant path on the regional Mx service host rather than from a public
-    developer portal.'
-  humanURL: https://www.mastercontrol.com/solutions/toolkit/
-  baseURL: https://mx.us-west-2.svc.mastercontrol.com
-  tags:
-  - Manufacturing
-  - Quality Management
-  - Life Sciences
-  properties:
-  - type: Documentation
-    url: https://www.mastercontrol.com/solutions/toolkit/
-  x-access: 'tenant-scoped; requires an active MasterControl tenant plus a separately purchased API
-    license. Swagger UI is published per tenant at
-    https://mx.<region>.svc.mastercontrol.com/<company>/swagger-ui/index.html'
-  x-evidence:
-    fetched: '2026-08-04'
-    host_probe: https://mx.us-west-2.svc.mastercontrol.com/
-    http_status: 404
-    note: host resolves and answers, but no anonymous spec or swagger-ui exists at the host root
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: StatusPage
+  url: https://status.mastercontrol.com/support
+- type: TrustCenter
+  url: security/mastercontrol-trust-center.yml
+- type: Deprecation
+  url: lifecycle/mastercontrol-lifecycle.yml
+- type: Hosts
+  url: hosts/mastercontrol-hosts.yml
+- type: Vendors
+  url: vendors/mastercontrol-vendors.yml
+- type: Newsroom
+  url: https://www.mastercontrol.com/news/
+- type: Leadership
+  url: https://www.mastercontrol.com/company/team/
 - type: DomainSecurity
   url: security/mastercontrol-domain-security.yml
 - type: Website
@@ -116,28 +120,46 @@ common:
   url: conformance/mastercontrol-conformance.yml
 - type: Lifecycle
   url: lifecycle/mastercontrol-lifecycle.yml
-- type: LLMsTxt
-  url: llms/mastercontrol-llms.txt
+
+apis:
+- aid: mastercontrol:mx-restful-api
+  name: MasterControl Mx RESTful API
+  description: 'The MasterControl Manufacturing Excellence (Mx) RESTful API creates, modifies,
+    retrieves and deletes manufacturing and production-record data in Mx. It is delivered through the
+    separately licensed MasterControl API Toolkit, and its reference is served as a Swagger UI from
+    the customer''s own tenant path on the regional Mx service host rather than from a public
+    developer portal.'
+  humanURL: https://www.mastercontrol.com/solutions/toolkit/
+  baseURL: https://mx.us-west-2.svc.mastercontrol.com
+  tags:
+  - Manufacturing
+  - Quality Management
+  - Life Sciences
+  properties:
+  - type: Documentation
+    url: https://www.mastercontrol.com/solutions/toolkit/
+  x-access: 'tenant-scoped; requires an active MasterControl tenant plus a separately purchased API
+    license. Swagger UI is published per tenant at
+    https://mx.<region>.svc.mastercontrol.com/<company>/swagger-ui/index.html'
+  x-evidence:
+    fetched: '2026-08-04'
+    host_probe: https://mx.us-west-2.svc.mastercontrol.com/
+    http_status: 404
+    note: host resolves and answers, but no anonymous spec or swagger-ui exists at the host root
 x-enrichment:
-  date: '2026-08-04'
+  date: '2026-10-20'
   status: minimal
-  artifacts_added: 6
-  pass: local-v1
+  artifacts_added: 3
+  pass: local-v5
 x-coverage:
   state: gated
   reason: customer-only-docs
-  detail: >-
-    MasterControl's Qx and Mx REST reference is a Swagger UI served only from inside a paying
-    customer's own tenant (https://mx.<region>.svc.mastercontrol.com/<company>/swagger-ui/index.html)
-    and requires a separately purchased API license, so the host root and every anonymous spec path
-    on the live Mx service host return 404.
+  detail: MasterControl's Qx/Mx REST reference is a Swagger UI served per customer tenant on mx.<region>.svc.mastercontrol.com behind a separately licensed API Toolkit, and the public toolkit page carries no contract, pricing or limits.
   evidence:
-  - url: https://mx.us-west-2.svc.mastercontrol.com/swagger-ui/index.html
+  - url: https://mx.us-west-2.svc.mastercontrol.com/
     status: 404
-  - url: https://mx.us-west-2.svc.mastercontrol.com/v3/api-docs
-    status: 404
-  - url: https://www.mastercontrol.com/openapi.json
-    status: 404
-  - url: https://currentcloud.onlinehelp.mastercontrol.com/2024.1/en_us/Content/Appendix/Access_and_Use_MasterControl_APIs.htm
+  - url: https://www.mastercontrol.com/solutions/toolkit/
     status: 200
-  checked: '2026-08-04'
+  - url: https://support.mastercontrol.com/api/mcp
+    status: 401
+  checked: '2026-10-20'

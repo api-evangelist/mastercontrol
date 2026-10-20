@@ -1,0 +1,12 @@
+name: MasterControl pricing
+generated: '2026-10-20'
+method: none
+source: https://www.mastercontrol.com/pricing/
+audience: business-product
+pricing_basis: negotiated
+published: false
+delivery:
+  delivery: managed
+plan_count: 0
+plans: []
+note: "The pricing page publishes no tiers or numeric prices; it says \"Contact our representatives for information about pricing tailored to your organization's needs.\" The API Toolkit is a separately licensed add-on with no published price."

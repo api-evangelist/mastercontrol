@@ -1,115 +1,309 @@
-generated: '2026-08-04'
+generated: '2026-10-20'
 method: probed
-source: live GET of /.well-known/* and common spec paths on every MasterControl host
-summary: >-
-  No .well-known document was recovered from any MasterControl-controlled host. Two hosts return
-  HTTP 200 for every path probed and are recorded here as confirmed false positives so a later
-  round does not mistake them for hits.
-false_positives:
-- host: https://currentcloud.onlinehelp.mastercontrol.com
-  behaviour: >-
-    Returns HTTP 200 with content-type image/jpeg and an identical 313,869-byte 1920x836 JPEG for
-    EVERY path, including /robots.txt and paths that cannot exist. Verified against browser,
-    Googlebot, bingbot and curl user-agents — the response never varies. Any 200 from this host
-    is meaningless.
-- host: https://support.mastercontrol.com
-  behaviour: >-
-    ServiceNow portal answers /.well-known/openid-configuration with HTTP 200 text/html (the SPA
-    catch-all), not an OIDC discovery document. Rejected.
-- host: https://status.mastercontrol.com
-  behaviour: same ServiceNow instance and same text/html catch-all on /.well-known/openid-configuration
-documents:
-- host: https://www.mastercontrol.com
-  path: /.well-known/security.txt
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /.well-known/openid-configuration
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /.well-known/api-catalog
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /.well-known/ai-plugin.json
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /.well-known/agent-card.json
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /.well-known/agent.json
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /llms.txt
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /openapi.json
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /swagger.json
-  status: 404
-- host: https://www.mastercontrol.com
-  path: /robots.txt
-  status: 200
-  note: real robots.txt; disallows /downloadables/ and /Sitefinity/
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /.well-known/security.txt
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /.well-known/openid-configuration
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /.well-known/oauth-authorization-server
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /.well-known/agent-card.json
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /.well-known/agent.json
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /.well-known/api-catalog
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /openapi.json
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /openapi.yaml
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /swagger.json
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /v3/api-docs
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /v2/api-docs
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /api-docs
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /swagger-ui/index.html
-  status: 404
-- host: https://mx.us-west-2.svc.mastercontrol.com
-  path: /llms.txt
-  status: 404
-- host: https://support.mastercontrol.com
-  path: /.well-known/security.txt
-  status: 404
-- host: https://support.mastercontrol.com
-  path: /.well-known/agent-card.json
-  status: 404
-- host: https://support.mastercontrol.com
-  path: /.well-known/agent.json
-  status: 404
-hosts_not_resolving:
-- developer.mastercontrol.com
-- api.mastercontrol.com
-- docs.mastercontrol.com
-- trust.mastercontrol.com
-- security.mastercontrol.com
-- community.mastercontrol.com
-- qx.mastercontrol.com
-- mx.mastercontrol.com
-- app.mastercontrol.com
-- login.mastercontrol.com
-- auth.mastercontrol.com
+generator: harvest-well-known.py
+source: Live GET of the named /.well-known/ path list on every host the record knows; every row is a request that
+  was issued.
+summary:
+  hosts_probed: 7
+  paths_probed: 77
+  documents_served: 0
+hosts:
+- host: mx.us-west-2.svc.mastercontrol.com
+  control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    standard: RFC 9116
+  - path: /.well-known/openid-configuration
+    status: 404
+    standard: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    standard: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    standard: RFC 9728
+  - path: /.well-known/api-catalog
+    status: 404
+    standard: RFC 9727
+  - path: /.well-known/apis.json
+    status: 404
+    standard: APIs.json
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    standard: OpenAI plugin manifest
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    standard: AAuth
+  - path: /.well-known/ucp.json
+    status: 404
+    standard: UCP
+  - path: /.well-known/acp.json
+    status: 404
+    standard: ACP
+  - path: /.well-known/mcp/server-card.json
+    status: 404
+    standard: MCP server card
+- host: www.mastercontrol.com
+  control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    standard: RFC 9116
+  - path: /.well-known/openid-configuration
+    status: 404
+    standard: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    standard: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    standard: RFC 9728
+  - path: /.well-known/api-catalog
+    status: 404
+    standard: RFC 9727
+  - path: /.well-known/apis.json
+    status: 404
+    standard: APIs.json
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    standard: OpenAI plugin manifest
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    standard: AAuth
+  - path: /.well-known/ucp.json
+    status: 404
+    standard: UCP
+  - path: /.well-known/acp.json
+    status: 404
+    standard: ACP
+  - path: /.well-known/mcp/server-card.json
+    status: 404
+    standard: MCP server card
+- host: status.mastercontrol.com
+  control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    standard: RFC 9116
+  - path: /.well-known/openid-configuration
+    status: 200
+    standard: OpenID Connect Discovery 1.0
+    note: '200 carrying an HTML/SPA shell: not a document'
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    standard: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    standard: RFC 9728
+  - path: /.well-known/api-catalog
+    status: 200
+    standard: RFC 9727
+    note: '200 carrying an HTML/SPA shell: not a document'
+  - path: /.well-known/apis.json
+    status: 404
+    standard: APIs.json
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    standard: OpenAI plugin manifest
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    standard: AAuth
+  - path: /.well-known/ucp.json
+    status: 404
+    standard: UCP
+  - path: /.well-known/acp.json
+    status: 404
+    standard: ACP
+  - path: /.well-known/mcp/server-card.json
+    status: 404
+    standard: MCP server card
+- host: support.mastercontrol.com
+  control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    standard: RFC 9116
+  - path: /.well-known/openid-configuration
+    status: 200
+    standard: OpenID Connect Discovery 1.0
+    note: '200 carrying an HTML/SPA shell: not a document'
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    standard: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    standard: RFC 9728
+  - path: /.well-known/api-catalog
+    status: 200
+    standard: RFC 9727
+    note: '200 carrying an HTML/SPA shell: not a document'
+  - path: /.well-known/apis.json
+    status: 404
+    standard: APIs.json
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    standard: OpenAI plugin manifest
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    standard: AAuth
+  - path: /.well-known/ucp.json
+    status: 404
+    standard: UCP
+  - path: /.well-known/acp.json
+    status: 404
+    standard: ACP
+  - path: /.well-known/mcp/server-card.json
+    status: 404
+    standard: MCP server card
+- host: api.mastercontrol.com
+  control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: null
+    bytes: 0
+  documents:
+  - path: /.well-known/security.txt
+    status: null
+    standard: RFC 9116
+    note: 'unreachable: URLError'
+  - path: /.well-known/openid-configuration
+    status: null
+    standard: OpenID Connect Discovery 1.0
+    note: 'unreachable: URLError'
+  - path: /.well-known/oauth-authorization-server
+    status: null
+    standard: RFC 8414
+    note: 'unreachable: URLError'
+  - path: /.well-known/oauth-protected-resource
+    status: null
+    standard: RFC 9728
+    note: 'unreachable: URLError'
+  - path: /.well-known/api-catalog
+    status: null
+    standard: RFC 9727
+    note: 'unreachable: URLError'
+  - path: /.well-known/apis.json
+    status: null
+    standard: APIs.json
+    note: 'unreachable: URLError'
+  - path: /.well-known/ai-plugin.json
+    status: null
+    standard: OpenAI plugin manifest
+    note: 'unreachable: URLError'
+  - path: /.well-known/aauth-resource.json
+    status: null
+    standard: AAuth
+    note: 'unreachable: URLError'
+  - path: /.well-known/ucp.json
+    status: null
+    standard: UCP
+    note: 'unreachable: URLError'
+  - path: /.well-known/acp.json
+    status: null
+    standard: ACP
+    note: 'unreachable: URLError'
+  - path: /.well-known/mcp/server-card.json
+    status: null
+    standard: MCP server card
+    note: 'unreachable: URLError'
+- host: help.mastercontrol.com
+  control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 313869
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    standard: RFC 9116
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/openid-configuration
+    status: 200
+    standard: OpenID Connect Discovery 1.0
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    standard: RFC 8414
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    standard: RFC 9728
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/api-catalog
+    status: 200
+    standard: RFC 9727
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/apis.json
+    status: 200
+    standard: APIs.json
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    standard: OpenAI plugin manifest
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    standard: AAuth
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/ucp.json
+    status: 200
+    standard: UCP
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/acp.json
+    status: 200
+    standard: ACP
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+  - path: /.well-known/mcp/server-card.json
+    status: 200
+    standard: MCP server card
+    note: '200 matching the host''s soft-200 control response or an error body: not a document'
+- host: learn.mastercontrol.com
+  control:
+    path: /.well-known/apis-io-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    standard: RFC 9116
+  - path: /.well-known/openid-configuration
+    status: 404
+    standard: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    standard: RFC 8414
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    standard: RFC 9728
+  - path: /.well-known/api-catalog
+    status: 404
+    standard: RFC 9727
+  - path: /.well-known/apis.json
+    status: 404
+    standard: APIs.json
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    standard: OpenAI plugin manifest
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    standard: AAuth
+  - path: /.well-known/ucp.json
+    status: 404
+    standard: UCP
+  - path: /.well-known/acp.json
+    status: 404
+    standard: ACP
+  - path: /.well-known/mcp/server-card.json
+    status: 404
+    standard: MCP server card

@@ -1,0 +1,7 @@
+name: MasterControl rate limits
+generated: '2026-10-20'
+method: none
+source: https://www.mastercontrol.com/solutions/toolkit/
+limit_count: 0
+limits: []
+note: No rate limits are published on any public MasterControl host; the Qx/Mx API reference is tenant-scoped Swagger UI behind a customer login and separate API license.
